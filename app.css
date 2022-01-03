@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@200;300;400&family=Comfortaa:wght@300;400&display=swap');
+
+body {
+    background-color: #fff;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+/* styling for the header */
+.header {
+    height: 120px;
+    width: 510px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    float: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 80px;
+    margin-right: 40px;
+    font-weight: 200;
+}
+
+.score {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    top: 10px;
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    color: grey;
+    text-align: center;
+}
+
+div.game-board {
+    border-bottom: 2px solid rgba(0,0,0,0.5);
+}
+
