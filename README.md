@@ -1,6 +1,6 @@
 # Project-1-game
 ## Game Choice - 2048
-
+## Psuedocode
 ## HTML
     First we have to setup the html
       - Div class for the header which contains the title and score
@@ -14,3 +14,6 @@
     - Function to initialize the game
     - Functions to add/update and move the tiles
     - Function to show either a loss message or a win message that connects to the Div class
+
+## Wireframe
+https://docs.google.com/drawings/d/1bKuRFYiqv-YG6dm7Oqsygx94H8mEywV-QZKY7b1ukKU/edit?usp=sharing
