@@ -8,7 +8,8 @@ body {
 }
 
 /* styling for the header */
-.header {
+
+.head {
     height: 120px;
     width: 510px;
     margin-left: auto;
@@ -18,6 +19,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.header {
+    border-bottom: 2px solid rgba(0,0,0,0.5);
 }
 
 .title {
@@ -37,9 +42,93 @@ body {
     font-size: 30px;
     color: grey;
     text-align: center;
+    opacity: 1;
 }
 
-div.game-board {
-    border-bottom: 2px solid rgba(0,0,0,0.5);
+/* Styling for the html game board and JS gameboard */
+
+.game-board, .game-grid {
+    position: absolute;
+    width: 510px;
+    height: 510px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-top: 30px;
+    border-radius: 5px;
+    border: 5px solid rgb(90, 89, 89);
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
 }
 
+.game-board {
+    z-index: 50;
+}
+
+.game-grid {
+    z-index: 100;
+}
+
+.game-row, .grid-row {
+    width: 510px;
+    height: 135px;
+    position: relative;
+    display: table-row;
+}
+
+.game-cells, .grid-cells {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 125px;
+    height: 125px;
+    position: relative;
+    display: table-cell;
+    border: 5px solid rgb(90, 89, 89);
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 50px;
+}
+
+.grid-cells {
+    background-color: black;
+    color: white;
+}
+
+.instructions {
+    margin-top: 15px;
+    width: 510px;
+    flex-wrap: wrap;
+    margin: auto;
+    font-family: 'Comfortaa', sans-serif;
+    line-height: 1.5;
+    font-size: 18px;
+    position: absolute;
+    top: 750px;
+    text-align: center;
+    left: 0;
+    right: 0;
+}
+
+div > div > div > div {
+    opacity: 0;
+    position: absolute;
+}
+
+/* Styling for the JS tile class */
+.tile {
+    opacity: 1;
+    width: 126px;
+    height: 125px;
+    background-color: white;
+    z-index: 150;
+    font-weight: 200;
+    font-family: 'Comfortaa', sans-serif;
+    top: 0;
+    left: -1px;
+    color: black;
+    transition: 0.3s all;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
