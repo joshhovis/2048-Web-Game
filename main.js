@@ -56,8 +56,6 @@ function generateCells(tileCount, timeOut) {
 
         // Gives the tile a value of 2 or 4
         tile.innerHTML = '' + randomNum;
-        console.log(tile.innerHTML)
-        // console.log(tile.innerHTML)
         tileColors(randomNum, tile);
         tile.data = '' + randomNum;
         tile.id = 'table_tile' + random1 + random2
@@ -94,6 +92,7 @@ function tileDirection(evt) {
             }
             if (count > 4) { break; }
         }
+        resetCells();
     }
 
     // DOWN Arrow Key
@@ -109,6 +108,7 @@ function tileDirection(evt) {
             }
             if (count < -4) { break; }
         }
+        resetCells();
     }
 
     // LEFT Arrow Key
@@ -124,6 +124,7 @@ function tileDirection(evt) {
             }
             if (count > 4) { break; }
         }
+        resetCells();
     }
 
     // Right Arrow Key
@@ -140,6 +141,7 @@ function tileDirection(evt) {
             }
             if (count < -4) { break; }
         }
+        resetCells();
     }
 }
 
@@ -162,6 +164,36 @@ function tileMovement(x, y, X, Y) {
             document.getElementsByClassName('game-grid').id = 'moved';
         }
     }
+}
+
+function resetCells() {
+    var count = 0;
+
+    for (var i = 1; i < 5; i++) {
+        for (var j = 1; j < 5; j++) {
+
+            var cellResetter = document.getElementById('' + i + j);
+            if (cellResetter.innerHTML != '') {
+                count++;
+            }
+        }
+    }
+    if (count == 16) {
+        var gStatus = document.getElementById('lose');
+        gStatus.style.opacity = '1';
+        reloadPage();
+
+    } else if (document.getElementsByClassName('game-grid').id == 'moved') {
+        generateCells(1, 1);
+    }
+    document.getElementsByClassName('game-grid').id = ' ';
+}
+
+// Temp solution to restart the game after losing, will be replaced with restart button
+function reloadPage() {
+    setTimeout(function () {
+        location.reload();
+    }, 2500);
 }
 
 // Styling for all of the different tiles
