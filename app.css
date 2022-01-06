@@ -155,7 +155,7 @@ div > div > div > div {
     font-weight: 700;
     color: rgb(190, 190, 190);
     text-shadow: 1px 1px rgb(110, 110, 110);
-
+    opacity: 0;
 }
 
 #win {
@@ -166,4 +166,33 @@ div > div > div > div {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.restartBtn {
+    position: absolute;
+    width: 490px;
+    height: 510px;
+    z-index: 300;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 250px;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+#restart {
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px rgb(110, 110, 110);
+    opacity: 0;
+    font-weight: 700;
+    border: 2px solid rgb(110, 110, 110);
+}
+
+#restart:hover {
+    text-shadow: 1px 1px rgb(29, 29, 29);
+    background-color: rgba(170, 169, 169, 0.4);
 }

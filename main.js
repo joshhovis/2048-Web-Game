@@ -223,7 +223,11 @@ function resetCells() {
     if (count == 16) {
         var gStatus = document.getElementById('lose');
         gStatus.style.opacity = '1';
-        reloadPage();
+
+        var restartBtn = document.getElementById('restart');
+        restartBtn.style.opacity = '1';
+
+        // reloadPage();
 
     } else if (document.getElementsByClassName('game-grid').id == 'moved') {
         generateCells(1, 1);
