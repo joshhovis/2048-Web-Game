@@ -2,6 +2,7 @@ window.onload = function () {
     buildGrid();
     generateCells(2, 0);
     tileDirection();
+    score();
 };
 
 
@@ -94,7 +95,6 @@ function tileDirection(evt) {
             if (count > 4) { break; }
         }
         resetCells();
-        console.log('up')
     }
 
     // DOWN Arrow Key
@@ -111,7 +111,6 @@ function tileDirection(evt) {
             if (count < -4) { break; }
         }
         resetCells();
-        console.log('down')
     }
 
     // LEFT Arrow Key
@@ -128,7 +127,6 @@ function tileDirection(evt) {
             if (count > 4) { break; }
         }
         resetCells();
-        console.log('left')
     }
 
     // Right Arrow Key
@@ -145,7 +143,6 @@ function tileDirection(evt) {
             if (count < -4) { break; }
         }
         resetCells();
-        console.log('right')
     }
 }
 
@@ -176,6 +173,15 @@ function tileMovement(x, y, X, Y) {
                 around.className = 'grid-cells active merged';
                 document.getElementsByClassName('game-grid').id = 'moved';
                 document.getElementsByClassName('game-grid').className = 'game-grid ' + value;
+
+                // Takes the sum of the merged tiles and adds that sum to the Score at the top of the page
+                var gameGrid = document.getElementById(' ');
+                var scoreVal = parseInt(gameGrid.dataset.value);
+                var updatedScore = value + scoreVal;
+
+                gameGrid.dataset.value = updatedScore;
+                var score = document.getElementById('value');
+                score.innerHTML = '' + updatedScore;
             }
         } else if (around.className == 'grid-cells') {
             around.appendChild(tile);
@@ -185,6 +191,13 @@ function tileMovement(x, y, X, Y) {
             document.getElementsByClassName('game-grid').id = 'moved';
         }
     }
+}
+
+// Placeholder value of 0 for the score when the game first starts
+function score() {
+    var gameGrid = document.getElementById(' ');
+    var value = gameGrid.dataset.value;
+    document.getElementById('value').innerHTML = '' + value;
 }
 
 function resetCells() {
@@ -215,7 +228,6 @@ function resetCells() {
     } else if (document.getElementsByClassName('game-grid').id == 'moved') {
         generateCells(1, 1);
     }
-    // document.getElementsByClassName('game-grid').id = ' ';
 }
 
 // Temp solution to restart the game after losing, will be replaced with restart button
