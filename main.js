@@ -56,6 +56,7 @@ function generateCells(tileCount, timeOut) {
 
         // Gives the tile a value of 2 or 4
         tile.innerHTML = '' + randomNum;
+
         tileColors(randomNum, tile);
         tile.data = '' + randomNum;
         tile.id = 'table_tile' + random1 + random2
@@ -93,6 +94,7 @@ function tileDirection(evt) {
             if (count > 4) { break; }
         }
         resetCells();
+        console.log('up')
     }
 
     // DOWN Arrow Key
@@ -109,6 +111,7 @@ function tileDirection(evt) {
             if (count < -4) { break; }
         }
         resetCells();
+        console.log('down')
     }
 
     // LEFT Arrow Key
@@ -125,15 +128,15 @@ function tileDirection(evt) {
             if (count > 4) { break; }
         }
         resetCells();
+        console.log('left')
     }
 
     // Right Arrow Key
     else if (evt.keyCode == '39') {
         var count = -2;
-        var c = 1;
         for (var i = 3; i < 4; i++) {
             for (var j = 1; j < 5; j++) {
-                tileMovement(j, i, 0, 1, 0, 4, c);
+                tileMovement(j, i, 0, 1, 0, 4);
             }
             if (i == 3) {
                 i += count;
@@ -142,6 +145,7 @@ function tileDirection(evt) {
             if (count < -4) { break; }
         }
         resetCells();
+        console.log('right')
     }
 }
 
@@ -154,9 +158,26 @@ function tileMovement(x, y, X, Y) {
     var xVar = x + X;
     var yVar = y + Y;
 
+    // Checking the grid to be sure it's a 4x4 grid
     if (xVar > 0 && xVar < 5 && yVar > 0 && yVar < 5 && this.check.className == 'grid-cells active') {
         var around = document.getElementById('' + xVar + yVar);
-        if (around.className == 'grid-cells') {
+
+        if (around.className == 'grid-cells active') {
+            var aroundTile = document.getElementById('table_tile' + xVar + yVar);
+
+            if (aroundTile.innerHTML == tile.innerHTML) {
+                var value = tile.dataset.value * 2;
+                aroundTile.dataset.value = '' + value;
+                aroundTile.className = 'tile ' + value;
+                aroundTile.innerHTML = '' + value;
+                tileColors(value, aroundTile);
+                this.check.removeChild(tile);
+                this.check.className = 'grid-cells';
+                around.className = 'grid-cells active merged';
+                document.getElementsByClassName('game-grid').id = 'moved';
+                document.getElementsByClassName('game-grid').className = 'game-grid ' + value;
+            }
+        } else if (around.className == 'grid-cells') {
             around.appendChild(tile);
             around.className = 'grid-cells active';
             tile.id = 'table_tile' + xVar + yVar;
@@ -176,6 +197,14 @@ function resetCells() {
             if (cellResetter.innerHTML != '') {
                 count++;
             }
+
+            if (cellResetter.innerHTML == '') {
+                cellResetter.className = 'grid-cells';
+            }
+
+            if (cellResetter.className == 'grid-cells active merged') {
+                cellResetter.className = 'grid-cells active';
+            }
         }
     }
     if (count == 16) {
@@ -186,7 +215,7 @@ function resetCells() {
     } else if (document.getElementsByClassName('game-grid').id == 'moved') {
         generateCells(1, 1);
     }
-    document.getElementsByClassName('game-grid').id = ' ';
+    // document.getElementsByClassName('game-grid').id = ' ';
 }
 
 // Temp solution to restart the game after losing, will be replaced with restart button
