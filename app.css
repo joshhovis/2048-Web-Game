@@ -108,12 +108,13 @@ body {
     height: 125px;
     position: relative;
     display: table-cell;
-    border: 3px solid rgb(71, 71, 71);
+    /* border: 3px solid rgb(71, 71, 71); */
     border-radius: 10px;
     text-align: center;
     vertical-align: middle;
     font-family: 'Comfortaa', sans-serif;
     font-size: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
 }
 
 .grid-cells {
@@ -130,7 +131,7 @@ body {
     line-height: 1.5;
     font-size: 18px;
     position: absolute;
-    top: 750px;
+    top: 718px;
     text-align: center;
     left: 0;
     right: 0;
@@ -144,8 +145,8 @@ div > div > div > div {
 /* Styling for the JS tile class */
 .tile {
     opacity: 1;
-    width: 121px;
-    height: 129px;
+    width: 125px;
+    height: 134px;
     border-radius: 10px;
     background-color: white;
     z-index: 150;
@@ -157,6 +158,7 @@ div > div > div > div {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
 }
 
 .game-status {
@@ -301,9 +303,57 @@ div > div > div > div {
     width: 510px;
     margin: auto;
     font-family: 'Comfortaa', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     bottom: 18px;
     text-align: center;
     left: 0;
     right: 0;
+}
+.contactContainer{
+    position: absolute;
+    width: 510px;
+    margin: auto;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 15px;
+    bottom: 85px;
+    text-align: center;
+    left: 0;
+    right: 0;
+}
+
+.arrow {
+    bottom: 75px;
+    position: absolute;
+    left: 200px;
+    right: 0;
+    margin: auto;
+    transform: rotate(140deg);
+    width: 28px;
+}
+
+.github {
+    box-shadow: 0 0 6px #fff;
+    border-radius: 50%;
+}
+
+.github:hover {
+    box-shadow: 0 0 10px rgb(255, 246, 114);
+}
+
+.linkedin {
+    box-shadow: 0 0 6px #fff;
+    border-radius: 5px;
+}
+
+.linkedin:hover {
+    box-shadow: 0 0 10px rgb(255, 246, 114);
+}
+
+.codepen {
+    box-shadow: 0 0 6px #fff;
+    border-radius: 50%;
+}
+
+.codepen:hover {
+    box-shadow: 0 0 10px rgb(255, 246, 114);
 }
