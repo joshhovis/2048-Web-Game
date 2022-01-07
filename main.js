@@ -3,8 +3,8 @@ window.onload = function () {
     generateCells(2, 0);
     tileDirection();
     score();
+    bestScore();
 };
-
 
 // Function to generate the JS grid //
 function buildGrid() {
@@ -146,7 +146,6 @@ function tileDirection(evt) {
     }
 }
 
-
 // Tile Movement //
 function tileMovement(x, y, X, Y) {
 
@@ -184,6 +183,14 @@ function tileMovement(x, y, X, Y) {
                 var score = document.getElementById('value');
                 score.innerHTML = '' + updatedScore;
 
+
+                var best = document.getElementById(' ');
+                var bestVal = parseInt(best.dataset.value);
+                var updatedBest = bestVal;
+                best.dataset.value = updatedBest;
+                var bestScore = document.getElementById('best');
+                bestScore.innerHTML = '' + updatedBest;
+
             }
         } else if (around.className == 'grid-cells') {
             around.appendChild(tile);
@@ -201,6 +208,13 @@ function score() {
     var value = gameGrid.dataset.value;
     document.getElementById('value').innerHTML = '' + value;
 }
+
+function bestScore() {
+    var best = document.getElementById(' ');
+    var bestValue = best.dataset.value;
+    document.getElementById('best').innerHTML = '' + bestValue;
+}
+
 
 function resetCells() {
     var count = 0;
@@ -271,6 +285,7 @@ function restart() {
     }
     document.getElementById(' ').dataset.value = 0;
     score();
+    // bestScore();
     resetCells();
     generateCells(1, 0);
     var gStatus = document.getElementById('lose');

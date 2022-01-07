@@ -50,8 +50,22 @@ body {
     margin-bottom: 20px;
     user-select: none;
 }
-
-.best {
+.bestScore {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    top: 10px;
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    color: rgb(92, 91, 91);
+    text-align: center;
+    opacity: 1;
+    background-color: rgba(226, 223, 223, 0.2);
+    border-radius: 5px;
+    height: 90px;
+    margin-bottom: 20px;
+    user-select: none;
     margin-left: 5px;
 }
 
@@ -129,7 +143,7 @@ div > div > div > div {
 /* Styling for the JS tile class */
 .tile {
     opacity: 1;
-    width: 122px;
+    width: 121px;
     height: 129px;
     border-radius: 10px;
     background-color: white;
@@ -218,6 +232,19 @@ div > div > div > div {
     border: 1px solid black;
     border-radius: 50%;
     padding: 8px;
+    animation: Restart 8s linear infinite;
+}
+
+@keyframes Restart {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 #restartIcon:hover .hoverFill {
