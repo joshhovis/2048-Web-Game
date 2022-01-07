@@ -22,7 +22,8 @@ body {
 }
 
 .header {
-    border-bottom: 2px solid rgba(0,0,0,0.5);
+    /* border-bottom: 2px solid rgba(0,0,0,0.5); */
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.5);
 }
 
 .title {
@@ -276,3 +277,33 @@ div > div > div > div {
     }
 }
 
+.contact{
+    position: absolute;
+    width: 150px;
+    margin: auto;
+    bottom: 45px;
+    text-align: center;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.contact a {
+    text-decoration: none;
+}
+.contact a:hover {
+    text-decoration: none;
+}
+
+.author{
+    position: absolute;
+    width: 510px;
+    margin: auto;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
+    bottom: 18px;
+    text-align: center;
+    left: 0;
+    right: 0;
+}
