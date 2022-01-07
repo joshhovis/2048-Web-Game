@@ -160,6 +160,7 @@ function tileMovement(x, y, X, Y) {
         var around = document.getElementById('' + xVar + yVar);
 
         if (around.className == 'grid-cells active') {
+
             var aroundTile = document.getElementById('table_tile' + xVar + yVar);
 
             if (aroundTile.innerHTML == tile.innerHTML) {
@@ -182,6 +183,7 @@ function tileMovement(x, y, X, Y) {
                 gameGrid.dataset.value = updatedScore;
                 var score = document.getElementById('value');
                 score.innerHTML = '' + updatedScore;
+
             }
         } else if (around.className == 'grid-cells') {
             around.appendChild(tile);
@@ -227,18 +229,9 @@ function resetCells() {
         var restartBtn = document.getElementById('restart');
         restartBtn.style.opacity = '1';
 
-        // reloadPage();
-
     } else if (document.getElementsByClassName('game-grid').id == 'moved') {
         generateCells(1, 1);
     }
-}
-
-// Temp solution to restart the game after losing, will be replaced with restart button
-function reloadPage() {
-    setTimeout(function () {
-        location.reload();
-    }, 2500);
 }
 
 // Styling for all of the different tiles
@@ -264,3 +257,27 @@ function tileColors(value, tile) {
             tile.style.fontSize = '40px'; break;
     }
 }
+
+function restart() {
+    for (var i = 1; i < 5; i++) {
+        for (var j = 1; j < 5; j++) {
+            var cellResetter = document.getElementById('' + i + j);
+            if (cellResetter.className == 'grid-cells active') {
+                var tile = document.getElementById('table_tile' + i + j);
+                cellResetter.removeChild(tile);
+
+            }
+        }
+    }
+    document.getElementById(' ').dataset.value = 0;
+    score();
+    resetCells();
+    generateCells(1, 0);
+    var gStatus = document.getElementById('lose');
+    gStatus.style.opacity = '0';
+    var restartBtn = document.getElementById('restart');
+    restartBtn.style.opacity = '0';
+}
+
+document.getElementById('restartIcon').addEventListener('click', restart)
+document.getElementById('restart').addEventListener('click', restart)

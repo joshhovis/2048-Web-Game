@@ -14,11 +14,22 @@
 
 <body>
     <div class="game">
+        <div id="gradient"></div>
         <div class="header">
             <div class="head">
                 <h1 class="title">2048</h1>
-                <input type="image" src="https://img.icons8.com/nolan/64/restart.png" class="restartIcon" onclick="">
+                <div id="restartIcon"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40"
+                        viewBox="0 0 40 40" style=" fill:#000000;">
+                        <path class="hoverFill" fill="rgba(223, 240, 254, 0.1)"
+                            d="M20,38.5C9.799,38.5,1.5,30.201,1.5,20c0-5.375,2.35-10.478,6.448-13.999L8.357,5.65L4.207,1.5H16.5 v12.293l-3.874-3.874l-0.349,0.274C9.241,12.583,7.5,16.157,7.5,20c0,6.893,5.607,12.5,12.5,12.5S32.5,26.893,32.5,20 c0-5.153-3.2-9.789-8-11.647V2.059c8.148,2.04,14,9.487,14,17.941C38.5,30.201,30.201,38.5,20,38.5z">
+                        </path>
+                        <path fill="rgb(0, 0, 0)"
+                            d="M16,2v6.395v4.191l-2.707-2.707l-0.628-0.628L11.968,9.8C8.811,12.285,7,16.002,7,20 c0,7.168,5.832,13,13,13s13-5.832,13-13c0-5.244-3.186-9.973-8-11.985V2.712C32.603,4.911,38,11.991,38,20c0,9.925-8.075,18-18,18 S2,29.925,2,20C2,14.77,4.287,9.806,8.274,6.381l0.818-0.703L8.329,4.915L5.414,2H16 M17,1H3l4.622,4.622C3.574,9.1,1,14.241,1,20 c0,10.493,8.507,19,19,19s19-8.507,19-19c0-9.12-6.429-16.732-15-18.57V8.7c4.653,1.653,8,6.087,8,11.3c0,6.617-5.383,12-12,12 S8,26.617,8,20c0-3.819,1.797-7.218,4.586-9.414L17,15V8.395V1.259V1L17,1z">
+                        </path>
+                    </svg></div>
                 <div class="score">Score<br /><span id="value"></span>
+                </div>
+                <div class="best score">Best<br /><span id="best"></span>
                 </div>
             </div>
         </div>
@@ -27,7 +38,7 @@
         <div class="game-status" id="lose">Game Over</div>
 
         <div class="restartBtn">
-            <button id="restart" type="button" class="btn btn-outline-secondary" onclick="">Restart</button>
+            <button id="restart" type="button" class="btn btn-outline-secondary btn-sm" onclick="">Restart</button>
         </div>
 
         <div class="game-board">
