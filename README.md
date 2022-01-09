@@ -11,6 +11,6 @@ When the page first loads, there will be 2 squares on the grid already filled in
 https://docs.google.com/drawings/d/1bKuRFYiqv-YG6dm7Oqsygx94H8mEywV-QZKY7b1ukKU/edit?usp=sharing
 
 ###### Screenshots
-/home/josh/sei1213/unit1/projects/Project-1-2048/Images/image1.png
+![image1](/home/josh/sei1213/unit1/projects/Project-1-2048/Images/image1.png?raw=true)
 
-/home/josh/sei1213/unit1/projects/Project-1-2048/Images/image2.png
+![image2](/home/josh/sei1213/unit1/projects/Project-1-2048/Images/image2.png?raw=true)
