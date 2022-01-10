@@ -15,5 +15,9 @@ https://docs.google.com/drawings/d/1bKuRFYiqv-YG6dm7Oqsygx94H8mEywV-QZKY7b1ukKU/
 
 ![image2](Images/image2.png)
 
+###### Future Features
+Fixing the scoreboard to save the high score
+Displaying a game win message
+
 ###### Link To Game
 https://joshhovis.github.io/Project-1-2048/
