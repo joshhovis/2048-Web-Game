@@ -10,6 +10,10 @@ When the page first loads, there will be 2 squares on the grid already filled in
 ###### Wireframe
 https://docs.google.com/drawings/d/1bKuRFYiqv-YG6dm7Oqsygx94H8mEywV-QZKY7b1ukKU/edit?usp=sharing
 
+
+###### Link To Game
+https://joshhovis.github.io/Project-1-2048/
+
 ###### Screenshots
 ![image1](Images/image1.png)
 
@@ -18,6 +22,3 @@ https://docs.google.com/drawings/d/1bKuRFYiqv-YG6dm7Oqsygx94H8mEywV-QZKY7b1ukKU/
 ###### Future Features
 * Fixing the scoreboard to save the high score
 * Displaying a game win message
-
-###### Link To Game
-https://joshhovis.github.io/Project-1-2048/
