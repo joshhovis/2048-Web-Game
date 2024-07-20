@@ -2,8 +2,8 @@ window.onload = function () {
   buildGrid();
   generateCells(2, 0);
   tileDirection();
-  score();
-  bestScore();
+  updateScore();
+  updateBestScore();
 };
 
 // Function to generate the JS grid //
@@ -204,7 +204,7 @@ function tileMovement(x, y, X, Y) {
         var bestScore = document.getElementById("best");
         bestScore.innerHTML = "" + updatedBest;
 
-        bestScore();
+        updateBestScore();
       }
     } else if (around.className == "grid-cells") {
       around.appendChild(tile);
@@ -216,43 +216,21 @@ function tileMovement(x, y, X, Y) {
   }
 }
 
-// Placeholder value of 0 for the score when the game first starts
-function score() {
-  var gameGrid = document.getElementById(" ");
-  var value = gameGrid.dataset.value;
-  document.getElementById("value").innerHTML = "" + value;
-}
-
-function bestScore() {
-  var best = document.getElementById(" ");
-  var bestValue = best.dataset.value;
-  var storedBestScore = localStorage.getItem("highScore");
-
-  if (
-    storedBestScore === null ||
-    parseInt(storedBestScore) < parseInt(bestValue)
-  ) {
-    localStorage.setItem("highScore", bestValue);
-    storedBestScore = bestValue;
-  }
-
-  document.getElementById("best").innerHTML = "" + storedBestScore;
-}
 
 function resetCells() {
   var count = 0;
-
+  
   for (var i = 1; i < 5; i++) {
     for (var j = 1; j < 5; j++) {
       var cellResetter = document.getElementById("" + i + j);
       if (cellResetter.innerHTML != "") {
         count++;
       }
-
+      
       if (cellResetter.innerHTML == "") {
         cellResetter.className = "grid-cells";
       }
-
+      
       if (cellResetter.className == "grid-cells active merged") {
         cellResetter.className = "grid-cells active";
       }
@@ -261,12 +239,35 @@ function resetCells() {
   if (count == 16) {
     var gStatus = document.getElementById("lose");
     gStatus.style.opacity = "1";
-
+    
     var restartBtn = document.getElementById("restart");
     restartBtn.style.opacity = "1";
   } else if (document.getElementsByClassName("game-grid").id == "moved") {
     generateCells(1, 1);
   }
+}
+
+function updateScore(additionalScore = 0) {
+  const gameGrid = document.querySelector(".game-grid");
+  let scoreVal = parseInt(gameGrid.dataset.value) || 0;
+  scoreVal += additionalScore;
+  gameGrid.dataset.value = scoreVal;
+
+  document.getElementById("value").innerHTML = scoreVal;
+  updateBestScore();
+}
+
+function updateBestScore() {
+  const gameGrid = document.querySelector(".game-grid");
+  let scoreVal = parseInt(gameGrid.dataset.value) || 0;
+  let bestScore = localStorage.getItem("highScore") || 0;
+
+  if (scoreVal > bestScore) {
+    localStorage.setItem("highScore", scoreVal);
+    bestScore = scoreVal;
+  }
+
+  document.getElementById("best").innerHTML = bestScore;
 }
 
 // Styling for all of the different tiles
