@@ -216,32 +216,26 @@ function tileMovement(x, y, X, Y) {
   }
 }
 
-
 function resetCells() {
-  var count = 0;
+  let count = 0;
   
-  for (var i = 1; i < 5; i++) {
-    for (var j = 1; j < 5; j++) {
-      var cellResetter = document.getElementById("" + i + j);
-      if (cellResetter.innerHTML != "") {
+  for (let i = 1; i < 5; i++) {
+    for (let j = 1; j < 5; j++) {
+      const cell = document.getElementById(`${i}${j}`);
+
+      if (cell.innerHTML != "") {
         count++;
+      } else {
+        cell.className = "grid-cells"
       }
       
-      if (cellResetter.innerHTML == "") {
-        cellResetter.className = "grid-cells";
-      }
-      
-      if (cellResetter.className == "grid-cells active merged") {
-        cellResetter.className = "grid-cells active";
-      }
+      if (cell.className == "grid-cells active merged") cell.className = "grid-cells active";
     }
   }
+
   if (count == 16) {
-    var gStatus = document.getElementById("lose");
-    gStatus.style.opacity = "1";
-    
-    var restartBtn = document.getElementById("restart");
-    restartBtn.style.opacity = "1";
+    document.getElementById("lose").style.opacity = "1";
+    document.getElementById("restart").style.opacity = "1";
   } else if (document.getElementsByClassName("game-grid").id == "moved") {
     generateCells(1, 1);
   }
