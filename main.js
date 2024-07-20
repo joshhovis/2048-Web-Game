@@ -271,83 +271,45 @@ function resetCells() {
 
 // Styling for all of the different tiles
 function tileColors(value, tile) {
-  switch (value) {
-    case 2:
-      tile.style.background = "#E1F5FE";
-      tile.style.color = "black";
-      break;
-    case 4:
-      tile.style.background = "#B3E5FC";
-      tile.style.color = "black";
-      break;
-    case 8:
-      tile.style.background = "#81D5FA";
-      tile.style.color = "black";
-      break;
-    case 16:
-      tile.style.background = "#4FC2F8";
-      tile.style.color = "white";
-      break;
-    case 32:
-      tile.style.background = "#03a9f5";
-      tile.style.color = "white";
-      break;
-    case 64:
-      tile.style.background = "#0288d1";
-      tile.style.color = "white";
-      break;
-    case 128:
-      tile.style.background = "#00579c";
-      tile.style.color = "white";
-      tile.style.fontSize = "50px";
-      break;
-    case 256:
-      tile.style.background = "#e0c3fc";
-      tile.style.color = "black";
-      tile.style.fontSize = "50px";
-      break;
-    case 512:
-      tile.style.background = "#dab6fc";
-      tile.style.color = "black";
-      tile.style.fontSize = "50px";
-      break;
-    case 1024:
-      tile.style.background = "#bbadff";
-      tile.style.color = "white";
-      tile.style.fontSize = "40px";
-      break;
-    case 2048:
-      tile.style.background = "#9b93fc";
-      tile.style.color = "white";
-      tile.style.fontSize = "40px";
-      break;
-    case 4096:
-      tile.style.background = "#8e6bf2";
-      tile.style.color = "white";
-      tile.style.fontSize = "40px";
-      break;
+  const colors = {
+    2: { background: "#E1F5FE", color: "black" },
+    4: { background: "#B3E5FC", color: "black" },
+    8: { background: "#81D5FA", color: "black" },
+    16: { background: "#4FC2F8", color: "white" },
+    32: { background: "#03a9f5", color: "white" },
+    64: { background: "#0288d1", color: "white" },
+    128: { background: "#00579c", color: "white", fontSize: "50px" },
+    256: { background: "#e0c3fc", color: "black", fontSize: "50px" },
+    512: { background: "#dab6fc", color: "black", fontSize: "50px" },
+    1024: { background: "#bbadff", color: "white", fontSize: "40px" },
+    2048: { background: "#9b93fc", color: "white", fontSize: "40px" },
+    4096: { background: "#8e6bf2", color: "white", fontSize: "40px" }
+  };
+
+  const tileStyle = colors[value];
+  tile.style.background = tileStyle.background;
+  tile.style.color = tileStyle.color;
+  if (tileStyle.fontSize) {
+    tile.style.fontSize = tileStyle.fontSize;
   }
 }
 
+// Restart the game
 function restart() {
-  for (var i = 1; i < 5; i++) {
-    for (var j = 1; j < 5; j++) {
-      var cellResetter = document.getElementById("" + i + j);
-      if (cellResetter.className == "grid-cells active") {
-        var tile = document.getElementById("table_tile" + i + j);
-        cellResetter.removeChild(tile);
+  for (let i = 1; i <= 4; i++) {
+    for (let j = 1; j <= 4; j++) {
+      const cell = document.getElementById(`${i}${j}`);
+      while (cell.firstChild) {
+        cell.removeChild(cell.firstChild);
       }
+      cell.className = "grid-cells";
     }
   }
-  document.getElementById(" ").dataset.value = 0;
-  score();
-  // bestScore();
-  resetCells();
-  generateCells(1, 0);
-  var gStatus = document.getElementById("lose");
-  gStatus.style.opacity = "0";
-  var restartBtn = document.getElementById("restart");
-  restartBtn.style.opacity = "0";
+  document.querySelector(".game-grid").dataset.value = 0;
+  updateScore();
+  generateCells(2, 0);
+  document.getElementById("lose").style.opacity = "0";
+  document.getElementById("restart").style.opacity = "0";
 }
 
 document.getElementById("restartIcon").addEventListener("click", restart);
