@@ -7,10 +7,6 @@ User will use the arrow keys to move the tiles on the board. All tiles on the bo
 ###### User Story
 When the page first loads, there will be 2 squares on the grid already filled in with either 2 or 4. The user can start the game by just using the arrow keys to move the squares. Once you press the arrow keys then more squares will start to drop in.
 
-###### Wireframe
-https://docs.google.com/drawings/d/1bKuRFYiqv-YG6dm7Oqsygx94H8mEywV-QZKY7b1ukKU/edit?usp=sharing
-
-
 ###### Link To Game
 https://joshhovis.github.io/2048-Web-Game/
 
@@ -20,5 +16,4 @@ https://joshhovis.github.io/2048-Web-Game/
 ![image2](Images/image2.png)
 
 ###### Future Features
-* Fixing the scoreboard to save the high score
-* Displaying a game win message
+- Optimization for mobile and tablet devices
